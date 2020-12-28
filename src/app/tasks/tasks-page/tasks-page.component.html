@@ -1,0 +1,25 @@
+<div id="page-container">
+    <app-header></app-header>
+    <div id="content-wrap" class="ml-4 mr-4 mt-2">
+
+        <div>
+            <mat-toolbar class="mat-elevation-z1 rounded" id="toolbar">
+                <span>Your Email Here: &nbsp;</span>
+                <form>
+                    <input [(ngModel)]="email" name="email" />
+                    <button mat-button color="primary" class="ml-2" (click)="saveEmail($event)">Submit</button>
+                </form>
+                <span class="spacer"></span>
+                <button mat-raised-button color="primary" (click)="openDialog()">New Task</button>
+            </mat-toolbar>
+        </div>
+
+        <app-task-container title="To Do" [tasks]="tasks | filterByDone: false" (warnChange)="changed()">
+        </app-task-container>
+
+        <app-task-container title="Done" [tasks]="tasks | filterByDone" (warnChange)="changed()">
+        </app-task-container>
+
+    </div>
+    <app-footer id="footer"></app-footer>
+</div>
