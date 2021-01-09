@@ -39,11 +39,6 @@ export class TasksPageComponent implements OnInit {
     });
   }
 
-  saveEmail(event: Event) {
-    event.preventDefault();
-    this.service.saveEmail(this.email).subscribe(() => { this.service.showMessage('Email registered successfully') });
-  }
-
   changed(): void {
     this.ngOnInit();
   }

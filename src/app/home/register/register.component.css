@@ -1,0 +1,9 @@
+@keyframes unfade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+#register-box {
+  animation-name: unfade;
+  animation-duration: 1s;
+}

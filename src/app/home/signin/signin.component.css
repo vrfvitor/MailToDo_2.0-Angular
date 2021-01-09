@@ -1,0 +1,9 @@
+@keyframes unfade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.main-wrapper {
+  animation-name: unfade;
+  animation-duration: 500ms;
+}

@@ -1,0 +1,23 @@
+#bg-text {
+    position: absolute;
+    width: 100%;
+    font-size: 300px;
+    text-align: center;
+    margin-top: 20%;
+    color: #f5f5f5;
+    font-family: sans-serif;
+    font-weight: bold;
+    user-select: none;
+}
+
+.my-link {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.my-link a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #e6c556;
+}

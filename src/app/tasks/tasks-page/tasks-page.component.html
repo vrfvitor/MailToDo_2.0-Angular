@@ -7,10 +7,10 @@
                 <span>Your Email Here: &nbsp;</span>
                 <form>
                     <input [(ngModel)]="email" name="email" />
-                    <button mat-button color="primary" class="ml-2" (click)="saveEmail($event)">Submit</button>
+                    <button mat-button color="primary" class="ml-2">Submit</button>
                 </form>
                 <span class="spacer"></span>
-                <button mat-raised-button color="primary" (click)="openDialog()">New Task</button>
+                <button id="btn-new" mat-raised-button (click)="openDialog()">New Task</button>
             </mat-toolbar>
         </div>
 

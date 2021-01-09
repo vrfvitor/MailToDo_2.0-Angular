@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { AngularMaterialModule } from 'app/ng-material.module';
 
 import { FooterComponent } from './template/footer/footer.component';
 import { HeaderComponent } from './template/header/header.component';
@@ -11,8 +10,7 @@ import { HeaderComponent } from './template/header/header.component';
   declarations: [FooterComponent, HeaderComponent],
   imports: [
     CommonModule,
-    MatIconModule,
-    MatToolbarModule
+    AngularMaterialModule
   ],
   exports: [FooterComponent, HeaderComponent]
 })

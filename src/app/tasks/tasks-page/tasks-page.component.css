@@ -26,3 +26,8 @@ button:focus {
     bottom: 0;
     width: 100%;
 }
+
+#btn-new {
+    color: #e6c556;
+    background-color: #231F20;
+}
