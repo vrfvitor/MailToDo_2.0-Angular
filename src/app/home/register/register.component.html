@@ -1,47 +1,47 @@
 <div id="register-box" class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
-    <mat-card class="box">
-        <mat-card-header>
-            <mat-card-title>Register</mat-card-title>
-        </mat-card-header>
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
 
-        <form [formGroup]="registerForm" class="example-form">
+    <form [formGroup]="registerForm" class="example-form" (submit)="register()">
 
-            <mat-card-content>
-                <mat-form-field class="example-full-width">
-                    <input formControlName="fName" matInput placeholder="First Name">
-                    <mat-error *ngIf="registerForm.get('fName').errors?.required">
-                        First name is <strong>required</strong>
-                      </mat-error>
-                </mat-form-field>
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input formControlName="fName" matInput placeholder="First Name">
+          <mat-error *ngIf="registerForm.get('fName').errors?.required">
+            First name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
 
-                <mat-form-field class="example-full-width mt-2">
-                    <input id="email" #email="matInput" formControlName="email" matInput placeholder="Email">
-                    <mat-error *ngIf="registerForm.get('email').errors?.required">
-                        Email is <strong>required</strong>
-                      </mat-error>
-                      <mat-error *ngIf="registerForm.get('email').errors?.email && !email.focused">
-                        Please insert a valid email
-                      </mat-error>
-                </mat-form-field>
+        <mat-form-field class="example-full-width mt-2">
+          <input id="email" autocapitalize="none" #email="matInput" formControlName="email" matInput placeholder="Email">
+          <mat-error *ngIf="registerForm.get('email').errors?.required">
+            Email is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="registerForm.get('email').errors?.email && !email.focused">
+            Please insert a valid email
+          </mat-error>
+        </mat-form-field>
 
-                <mat-form-field class="example-full-width mt-2">
-                    <input [type]="!hide ? 'text' : 'password'" formControlName="password" matInput placeholder="Password">
-                    <mat-icon matSuffix (click)="hide = !hide">
-                        {{hide ? 'visibility_off' : 'visibility'}}
-                    </mat-icon>
-                    <mat-error *ngIf="registerForm.get('password').errors?.required">
-                        Password is <strong>required</strong>
-                      </mat-error>
-                      <mat-error *ngIf="registerForm.get('password').errors?.minlength">
-                        Password must contain at least 5 characters 
-                      </mat-error>
-                </mat-form-field>
+        <mat-form-field class="example-full-width mt-2">
+          <input [type]="!hide ? 'text' : 'password'" formControlName="password" matInput placeholder="Password">
+          <mat-icon matSuffix (click)="hide = !hide">
+            {{hide ? 'visibility_off' : 'visibility'}}
+          </mat-icon>
+          <mat-error *ngIf="registerForm.get('password').errors?.required">
+            Password is <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="registerForm.get('password').errors?.minlength">
+            Password must contain at least 5 characters
+          </mat-error>
+        </mat-form-field>
 
-            </mat-card-content>
+      </mat-card-content>
 
-            <button [disabled]="!registerForm.valid" mat-stroked-button color="golden" class="btn-block">Register</button>
+      <button [disabled]="!registerForm.valid" mat-stroked-button color="golden" class="btn-block">Register</button>
 
-        </form>
-        <p style="text-align: center;" class="mt-3">Already a user? <a [routerLink]="['']">Sign In!</a></p>
-    </mat-card>
+    </form>
+    <p style="text-align: center;" class="mt-3">Already a user? <a [routerLink]="['']">Sign In!</a></p>
+  </mat-card>
 </div>

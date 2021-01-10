@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 
 import { Task } from './task';
@@ -14,16 +13,10 @@ export class TaskService {
 
   API_URI = `${API_URL}/tasks`;
 
-  constructor(private snackBar: MatSnackBar, private http: HttpClient, private tokenService: TokenService) { }
-
-  showMessage(msg: string, isError: boolean = false): void {
-    this.snackBar.open(msg, 'x', {
-      duration: 3000,
-      horizontalPosition: 'right',
-      verticalPosition: 'top',
-      panelClass: isError ? 'msg-error' : 'msg-success'
-    });
-  }
+  constructor(
+    private http: HttpClient,
+    private tokenService: TokenService
+  ) { }
 
   create(task: Task): Observable<Task> {
     return this.http.post<Task>(this.API_URI, task, this.getAuthorizatioHeader());

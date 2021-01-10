@@ -4,11 +4,7 @@
 
         <div>
             <mat-toolbar class="mat-elevation-z1 rounded" id="toolbar">
-                <span>Your Email Here: &nbsp;</span>
-                <form>
-                    <input [(ngModel)]="email" name="email" />
-                    <button mat-button color="primary" class="ml-2">Submit</button>
-                </form>
+                <span id="txt-welcome">Welcome, {{user?.name!! ? user.name : 'Vitor'}}!</span>
                 <span class="spacer"></span>
                 <button id="btn-new" mat-raised-button (click)="openDialog()">New Task</button>
             </mat-toolbar>
@@ -19,6 +15,10 @@
 
         <app-task-container title="Done" [tasks]="tasks | filterByDone" (warnChange)="changed()">
         </app-task-container>
+
+        <button style="position: {{abs_fab ? 'absolute': 'fixed'}}" id="fab-new" mat-fab (click)="openDialog()">
+            <mat-icon>add</mat-icon>
+        </button>
 
     </div>
     <app-footer id="footer"></app-footer>

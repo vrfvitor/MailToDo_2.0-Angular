@@ -41,7 +41,7 @@ export class UserService {
     decodeAndNotify() {
         const token = this.tokenService.getToken();
         try {
-            const user = jwt_decode(token) as User;
+            const user = JSON.parse(jwt_decode(token).sub) as User;
             this.userSubject.next(user);
         } catch (e) {
             console.log(e);

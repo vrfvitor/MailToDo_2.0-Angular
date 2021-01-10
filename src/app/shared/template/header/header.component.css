@@ -1,8 +1,12 @@
-#title {
+#title, #small-title {
     font-size: 2.1rem;
     font-weight: 700;
     margin-left: 30px;
-    color: #ecc852;;
+    color: #ecc852;
+}
+
+#small-title {
+    display: none;
 }
 
 a {
@@ -19,4 +23,23 @@ a {
 
 button:focus {
     outline: none;
+}
+
+@media only screen and (max-width: 415px) {
+    #title {
+        margin-left: 10px;
+    }
+    .btn-logout {
+        margin-right: 10px !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #title {
+        display: none;
+    }
+    #small-title {
+        display: block;
+        margin-left: 10px;
+    }
 }

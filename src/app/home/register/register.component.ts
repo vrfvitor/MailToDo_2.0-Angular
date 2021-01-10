@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NewUser } from './new-user';
 import { RegisterService } from './register.service';
 
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
 
     constructor(
         private fBuilder: FormBuilder,
-        private registerService: RegisterService
+        private registerService: RegisterService,
+        private router: Router
     ) { }
 
     ngOnInit() {
@@ -29,7 +31,9 @@ export class RegisterComponent implements OnInit {
 
     register() {
         const newUser = this.registerForm.getRawValue() as NewUser;
-        this.registerService.register(newUser);
+        this.registerService.register(newUser).subscribe(() => {
+            this.router.navigate([''], { queryParams: { registered: true } });
+        }, e => console.log(e));
     }
 
 }

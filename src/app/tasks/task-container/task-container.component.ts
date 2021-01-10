@@ -4,6 +4,7 @@ import { Task } from '../task/task';
 import { EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TaskFormComponent } from '../task-form/task-form.component';
+import { MessagesService } from '@core/messages.service';
 
 @Component({
   selector: 'app-task-container',
@@ -18,12 +19,13 @@ export class TaskContainerComponent {
 
   constructor(
     private service: TaskService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private messagesService: MessagesService
   ) { }
 
   delete(id: number) {
     this.service.delete(id).subscribe(() => { 
-      this.service.showMessage('Task deleted successfully.')
+      this.messagesService.showMessage('Task deleted successfully.')
       this.warnChange.emit('');
     });
   }
@@ -44,7 +46,7 @@ export class TaskContainerComponent {
         if (!resultTask) return;
         console.log(resultTask);
         this.service.update(resultTask).subscribe(() => {
-          this.service.showMessage('Task updated successfully')
+          this.messagesService.showMessage('Task updated successfully')
           this.warnChange.emit('');
         });
       });
@@ -53,7 +55,7 @@ export class TaskContainerComponent {
 
   setDone(id: number, done: boolean = true) {
     this.service.setDone(id, done).subscribe(() => {
-      this.service.showMessage('Task set as ' + (done ? 'done!' : 'undone!'))
+      this.messagesService.showMessage('Task set as ' + (done ? 'done!' : 'undone!'))
       this.warnChange.emit('');
     });
   }

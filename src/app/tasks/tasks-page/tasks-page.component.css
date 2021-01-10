@@ -15,19 +15,52 @@ button:focus {
 #page-container {
     position: relative;
     min-height: 100vh;
+    min-height: -webkit-fill-available;
 }
-  
+
 #content-wrap {
     padding-bottom: 3.2rem;
 }
-  
+
 #footer {
     position: absolute;
     bottom: 0;
     width: 100%;
 }
 
-#btn-new {
+#btn-new, #fab-new {
     color: #e6c556;
     background-color: #231F20;
+}
+
+#fab-new {
+    position: fixed;
+    right: 25px;
+    bottom: 4rem;
+    display: none;
+}
+
+@media only screen and (max-width: 415px) {
+    #btn-new {
+        display: none;
+    }
+    #fab-new {
+        display: block;
+    }
+    .spacer {
+        display: none;
+    }
+    #txt-welcome {
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #fab-new {
+        width: 50px;
+        height: 50px;
+    }
+    mat-icon {
+        margin-top: -5px;
+    }
 }

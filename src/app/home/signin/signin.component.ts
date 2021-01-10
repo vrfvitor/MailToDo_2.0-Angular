@@ -1,7 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@core/auth/auth-service.service';
+import { MessagesService } from '@core/messages.service';
 
 @Component({
     selector: 'signin',
@@ -18,9 +19,16 @@ export class SigninComponent implements OnInit {
     constructor(
         private formBuilder: FormBuilder,
         private authService: AuthService,
-        private router: Router) { }
+        private activatedRoute: ActivatedRoute,
+        private router: Router,
+        private messagesService: MessagesService,
+    ) { }
 
     ngOnInit(): void {
+        this.activatedRoute.queryParams.subscribe(params =>
+            params.registered && this.messagesService.showMessage('User registered successfully')
+        );
+
         this.loginForm = this.formBuilder.group({
             email: ['', [Validators.required, Validators.email]],
             password: ['', Validators.required]
@@ -28,17 +36,18 @@ export class SigninComponent implements OnInit {
     }
 
     login(): void {
+        console.log('login');
+        
         const email = this.loginForm.get('email').value;
         const password = this.loginForm.get('password').value;
 
         this.authService.authenticate(email, password)
             .subscribe(
                 () => {
-                    console.log('Autenticou');
-                    this.router.navigate(['tasks']);
+                    this.router.navigate(['tasks'], { queryParams: { signedIn: true } });
                 }
-                , err => {
-                    console.log(err);
+                , () => {
+                    this.messagesService.showMessage('You have entered an invalid username or password')
                     this.loginForm.reset();
                     this.inputEmail.nativeElement.focus();
                 });

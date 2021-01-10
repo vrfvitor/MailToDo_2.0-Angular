@@ -1,4 +1,6 @@
 .footer {
+    position: absolute;
+    bottom: 0;
     display: flex;
     justify-content: flex-end;
     background-color: rgba(240, 240, 240, 0.952);
@@ -9,4 +11,18 @@
 .footer > div {
     font-size: 1.05rem;
     font-weight: 300;
+}
+
+@media only screen and (max-width: 415px) {
+    .star-it {
+        display: none;
+    }
+
+    .tx-dev {
+        margin: 0 auto !important;
+    }
+    
+    .spacer {
+        display: none;
+    }
 }

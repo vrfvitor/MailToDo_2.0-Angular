@@ -1,8 +1,13 @@
 <mat-toolbar style="background-color: #231F20;" class="mat-elevation-z3">
+    
     <span id="title">MailToDo ++</span>
+    <span id="small-title">MTD ++</span>
+    
     <span class="spacer"></span>
-    <button class="mr-4" color="golden" mat-raised-button (click)="logout()">
-        Log Out 
+
+    <button class="mr-4 btn-logout" color="golden" mat-raised-button (click)="logout()">
+        <span class="mr-1 btn-txt">Log Out</span>
         <mat-icon>exit_to_app</mat-icon>
     </button>
+
 </mat-toolbar>

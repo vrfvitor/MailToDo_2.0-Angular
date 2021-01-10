@@ -1,9 +1,10 @@
 #bg-text {
     position: absolute;
+    display: inline;
     width: 100%;
-    font-size: 300px;
+    font-size: 16vw;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 22%;
     color: #f5f5f5;
     font-family: sans-serif;
     font-weight: bold;
@@ -11,7 +12,7 @@
 }
 
 .my-link {
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right: 20px;
 }
@@ -20,4 +21,10 @@
     text-decoration: none;
     font-weight: bold;
     color: #e6c556;
+}
+
+@media only screen and (max-width: 415px) {
+    .my-link {
+        display: none;
+    }
 }
