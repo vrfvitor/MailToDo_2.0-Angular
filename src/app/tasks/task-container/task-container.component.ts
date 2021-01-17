@@ -24,7 +24,7 @@ export class TaskContainerComponent {
   ) { }
 
   delete(id: number) {
-    this.service.delete(id).subscribe(() => { 
+    this.service.delete(id).subscribe(() => {
       this.messagesService.showMessage('Task deleted successfully.')
       this.warnChange.emit('');
     });
@@ -44,7 +44,6 @@ export class TaskContainerComponent {
 
       dialogRef.afterClosed().subscribe((resultTask: Task) => {
         if (!resultTask) return;
-        console.log(resultTask);
         this.service.update(resultTask).subscribe(() => {
           this.messagesService.showMessage('Task updated successfully')
           this.warnChange.emit('');

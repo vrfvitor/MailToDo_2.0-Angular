@@ -8,6 +8,8 @@ import { HomeModule } from './home/home.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RequestInterceptor } from '@core/auth/request.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,13 @@ import { AppRoutingModule } from './app-routing.module';
     TasksModule,
     HomeModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RequestInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
