@@ -8,8 +8,8 @@
 
       <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input formControlName="fName" matInput placeholder="First Name">
-          <mat-error *ngIf="registerForm.get('fName').errors?.required">
+          <input formControlName="name" matInput placeholder="First Name">
+          <mat-error *ngIf="registerForm.get('name').errors?.required">
             First name is <strong>required</strong>
           </mat-error>
         </mat-form-field>
