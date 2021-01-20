@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/static/v1?label=Spring-Boot&message=2&color=green&style=for-the-badge&logo=Spring"/>
-  <img src="https://img.shields.io/static/v1?label=Angular&message=10&color=red&style=for-the-badge&logo=Angular"/>
+  <img src="https://img.shields.io/static/v1?label=Angular&message=11&color=red&style=for-the-badge&logo=Angular"/>
   <img src="http://img.shields.io/static/v1?label=License&message=MIT&color=informational&style=for-the-badge"/>
 </p>
 
