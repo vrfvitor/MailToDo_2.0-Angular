@@ -44,13 +44,17 @@ export class UserService {
             const user = JSON.parse(jwt_decode(token).sub) as User;
             this.userSubject.next(user);
         } catch (e) {
-            console.log(e);
+            Error(e);
         }
     }
 
     logout() {
         this.tokenService.removeToken();
         this.userSubject.next(null);
+    }
+
+    isLogged() {
+        return this.tokenService.hasToken();
     }
 
 }   
