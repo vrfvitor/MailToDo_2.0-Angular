@@ -25,7 +25,6 @@ export class AuthService {
       .pipe(tap(res => {
         const accessToken = res.headers.get('x-access-token');
         this.userService.storeLoggedUserToken(accessToken);
-        console.log(`User with email '${email}' loged in with token '${accessToken}'`);
       }));
   }
 

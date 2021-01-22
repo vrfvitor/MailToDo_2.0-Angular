@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
         const newUser = this.registerForm.getRawValue() as NewUser;
         this.registerService.register(newUser).subscribe(() => {
             this.router.navigate([''], { queryParams: { registered: true } });
-        }, e => console.log(e));
+        }, e => Error(e));
     }
 
 }

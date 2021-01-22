@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Task } from './task';
-import { TokenService } from '@core/token/token.service';
 import { API_URL } from 'app/contants';
 
 @Injectable({
@@ -15,7 +14,6 @@ export class TaskService {
 
   constructor(
     private http: HttpClient,
-    private tokenService: TokenService
   ) { }
 
   create(task: Task): Observable<Task> {
